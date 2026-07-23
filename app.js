@@ -24,7 +24,8 @@ if (!fs.existsSync("uploads")) {
 const allow = {
     origin: [
         "http://localhost:5173",
-        "https://inventory-management-frontend-ggx49ratp.vercel.app"
+        "https://inventory-management-frontend-ggx49ratp.vercel.app",
+        "https://inventory-management-frontend-orcin-omega.vercel.app"
     ],
     methods: ["POST", "GET", "PUT", "PATCH", "DELETE"]
 }
