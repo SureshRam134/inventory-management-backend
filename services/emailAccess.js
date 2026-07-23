@@ -8,7 +8,8 @@ export const checkMail = (res) => {
     return nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
-        family: 4,
+        secure: false,
+        requireTLS: true,
         auth: {
             user: email,
             pass: process.env.SMTP_PASS
