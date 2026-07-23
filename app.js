@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import fs from "fs";
 import authRoute from './routes/authRoutes.js'
 import connectDb from './config/db.js'
 import { seedAdmin } from './modules/seeder.js'
@@ -17,6 +18,9 @@ import outOfStockRoutes from './routes/outOfStockRoutes.js'
 import chartRoutes from './routes/chartRoutes.js'
 
 dotenv.config()
+if (!fs.existsSync("uploads")) {
+    fs.mkdirSync("uploads");
+}
 const allow = {
     origin: "http://localhost:5173",
     methods: ["POST", "GET", "PUT", "PATCH", "DELETE"]
