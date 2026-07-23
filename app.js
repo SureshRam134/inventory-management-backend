@@ -22,7 +22,10 @@ if (!fs.existsSync("uploads")) {
     fs.mkdirSync("uploads");
 }
 const allow = {
-    origin: "http://localhost:5173","https://inventory-management-frontend-ggx49ratp.vercel.app",
+    origin: [
+        "http://localhost:5173",
+        "https://inventory-management-frontend-ggx49ratp.vercel.app"
+    ],
     methods: ["POST", "GET", "PUT", "PATCH", "DELETE"]
 }
 const server = express()
