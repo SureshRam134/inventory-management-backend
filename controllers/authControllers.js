@@ -160,6 +160,13 @@ export const checkEmailFunction = async (req, res) => {
             );
 
             const transporter = checkMail(res)
+            transporter.verify((error, success) => {
+                if (error) {
+                    console.log("SMTP Verify Error:", error);
+                } else {
+                    console.log("SMTP Ready");
+                }
+            });
             const MailSenderMsg = {
                 from: process.env.SMTP_USER,
                 to: email,
@@ -281,7 +288,7 @@ export const updateUser = async (req, res) => {
     const { userId, userName, email, phone, roleId, role, status, password } = req.body
     const image = req.file ? req.file.filename : "";
     const { id } = req.params
-    
+
     try {
         const userData = await register.findById(id);
         if (!userData) return responses(res, 400, "No user found");
